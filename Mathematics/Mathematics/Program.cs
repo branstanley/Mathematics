@@ -10,14 +10,16 @@ namespace Mathematics
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Forward Difference: " + Derivatives.forward_difference(F, 10));
+            Console.WriteLine("Backwards Difference: " + Derivatives.backwards_difference(F, 10));
             Console.WriteLine("Three Point: " + Derivatives.centered_three_point(F, 10));
-            Console.WriteLine("Five Point: " + Derivatives.centered_five_point(F, 10));
+            Console.WriteLine("Five Point:  " + Derivatives.centered_five_point(F, 10));
             Console.ReadKey();
         }
 
         public static Double F(Double x)
         {
-            return x * x * x * x * x * x;
+            return Math.Pow(x, 12);
         }
     }
 }
