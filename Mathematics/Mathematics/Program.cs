@@ -11,9 +11,13 @@ namespace Mathematics
         static void Main(string[] args)
         {
             Console.WriteLine("Forward Difference: " + Derivatives.forward_difference(F, 10));
+            Console.WriteLine("Forward Difference: " + Derivatives.forward_difference(D, 10));
             Console.WriteLine("Backwards Difference: " + Derivatives.backwards_difference(F, 10));
+            Console.WriteLine("Backwards Difference: " + Derivatives.backwards_difference(D, 10));
             Console.WriteLine("Three Point: " + Derivatives.centered_three_point(F, 10));
+            Console.WriteLine("Three Point: " + Derivatives.centered_three_point(D, 10));
             Console.WriteLine("Five Point:  " + Derivatives.centered_five_point(F, 10));
+            Console.WriteLine("Five Point:  " + Derivatives.centered_five_point(D, 10));
             Console.ReadKey();
         }
 
@@ -21,5 +25,16 @@ namespace Mathematics
         {
             return Math.Pow(x, 12);
         }
+
+        public static Decimal D(Decimal x)
+        {
+            Decimal output = x;
+            for (int i = 0; i < 11; ++i)
+            {
+                output *= x;
+            }
+            return output;
+        }
+
     }
 }
