@@ -14,10 +14,14 @@ namespace Mathematics
             Console.WriteLine("Forward Difference: " + Derivatives.forward_difference(D, 10));
             Console.WriteLine("Backwards Difference: " + Derivatives.backwards_difference(F, 10));
             Console.WriteLine("Backwards Difference: " + Derivatives.backwards_difference(D, 10));
-            Console.WriteLine("Three Point: " + Derivatives.centered_three_point(F, 10));
-            Console.WriteLine("Three Point: " + Derivatives.centered_three_point(D, 10));
-            Console.WriteLine("Five Point:  " + Derivatives.centered_five_point(F, 10));
-            Console.WriteLine("Five Point:  " + Derivatives.centered_five_point(D, 10));
+            Console.WriteLine("Three Point: " + Derivatives.centered_two_point(F, 10));
+            Console.WriteLine("Three Point: " + Derivatives.centered_two_point(D, 10));
+            Console.WriteLine("Five Point:  " + Derivatives.centered_four_point(F, 10));
+            Console.WriteLine("Five Point:  " + Derivatives.centered_four_point(D, 10));
+
+            Console.WriteLine("Second Derivative: " + Derivatives.second_derivative(F, 10));
+            Console.WriteLine("Second Derivative: " + Derivatives.second_derivative(D, 10));
+
             Console.ReadKey();
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mathematics
 {
-    static class Derivatives
+    public static class Derivatives
     {
         public delegate Double F(Double x);
         public delegate Decimal D(Decimal x);
@@ -48,12 +48,12 @@ namespace Mathematics
         /// <param name="f">The function to compute the differential</param>
         /// <param name="x">The value at x we're computing the differeential for</param>
         /// <returns>The differential of the function at x</returns>
-        public static Double centered_three_point(F f, Double x)
+        public static Double centered_two_point(F f, Double x)
         {
             Double h = 0.000000001;
             return (f(x + h) - f(x - h)) / (2 * h);
         }
-        public static Decimal centered_three_point(D f, Decimal x)
+        public static Decimal centered_two_point(D f, Decimal x)
         {
             Decimal h = 0.000000001M;
             return (f(x + h) - f(x - h)) / (2 * h);
@@ -66,16 +66,32 @@ namespace Mathematics
         /// <param name="f">The function to compute the differential</param>
         /// <param name="x">The value at x we're computing the differeential for</param>
         /// <returns>The differential of the function at x</returns>
-        public static Double centered_five_point(F f, Double x)
+        public static Double centered_four_point(F f, Double x)
         {
             Double h = 0.000000001;
             return (f(x - 2 * h) - 8 * f(x - h) + 8 * f(x + h) - f(x + 2 * h)) / (12 * h);
         }
-        public static Decimal centered_five_point(D f, Decimal x)
+        public static Decimal centered_four_point(D f, Decimal x)
         {
             Decimal h = 0.000000001M;
             return (f(x - 2 * h) - 8 * f(x - h) + 8 * f(x + h) - f(x + 2 * h)) / (12 * h);
         }
-        
+
+        /// <summary>
+        /// Calculates the second derivative of a number
+        /// </summary>
+        /// <param name="f">The function to compute the differential</param>
+        /// <param name="x">The value at x we're computing the differeential for</param>
+        /// <returns></returns>
+        public static Double second_derivative(F f, Double x)
+        {
+            Double h = 0.00000001; // h needs to be 10 times the normal value I use for h or else this calculation results in zero
+            return (f(x + h) - 2 * f(x) + f(x - h)) / (h * h);
+        }
+        public static Decimal second_derivative(D f, Decimal x)
+        {
+            Decimal h = 0.000000001M;
+            return (f(x + h) - 2 * f(x) + f(x - h)) / (h * h);
+        }
     }
 }
