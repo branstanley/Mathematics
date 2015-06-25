@@ -22,18 +22,26 @@ namespace Mathematics
             Console.WriteLine("Second Derivative: " + Derivatives.second_derivative(F, 10));
             Console.WriteLine("Second Derivative: " + Derivatives.second_derivative(D, 10));
 
+            Console.WriteLine("Summation Integrate x^2 from 0 to 4: " + Integration.IntegrationBySummation(F, 0, 4));
+            Console.WriteLine("Summation Integrate x^2 from 0 to 4: " + Integration.IntegrationBySummation(D, 0M, 4M));
+            Console.WriteLine("Trapezoid Integrate x^2 from 0 to 4: " + Integration.trapezoid_rule(F, 0, 4));
+            Console.WriteLine("Trapezoid Integrate x^2 from 0 to 4: " + Integration.trapezoid_rule(D, 0M, 4M));
+
             Console.ReadKey();
         }
 
+        private static double power = 1;
+        private static Decimal powerD = (Decimal)power;
+
         public static Double F(Double x)
         {
-            return Math.Pow(x, 12);
+            return Math.Pow(x, power);
         }
 
         public static Decimal D(Decimal x)
         {
-            Decimal output = x;
-            for (int i = 0; i < 11; ++i)
+            Decimal output = 1;
+            for (int i = 0; i < powerD; ++i)
             {
                 output *= x;
             }
