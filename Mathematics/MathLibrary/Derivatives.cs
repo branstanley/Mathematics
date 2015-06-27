@@ -85,7 +85,7 @@ namespace Mathematics
         /// <returns></returns>
         public static Double second_derivative(F f, Double x)
         {
-            Double h = 0.00000001; // h needs to be 10 times the normal value I use for h or else this calculation results in zero
+            Double h = 0.00001; // h needs to be smaller than the normal value I use for h or else this calculation results in zero
             return (f(x + h) - 2 * f(x) + f(x - h)) / (h * h);
         }
         public static Decimal second_derivative(D f, Decimal x)
